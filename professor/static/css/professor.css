@@ -1,0 +1,154 @@
+html , body{
+	width: 100%;
+	height: 100%;
+	box-sizing : border-box;
+}
+
+/* -------------------------------- CABECALHO ---------------------------------- */
+
+.cabecalho{
+	background-color: #897bd2;
+	height: 8%;
+	font-family: "Lato";
+	border-bottom : 5px solid black;
+	padding: 0.4%;
+}
+
+.cabecalho h2{
+	color : white;
+	font-size: 3em;
+	float: left;
+}
+
+.btn-cabecalho{
+	float: right;
+	width: 15%;
+	background-color: #c281d7;
+	color: white;
+	height: 35%;
+	margin-right: 3%;
+	border-radius: 8px;
+	border: none;
+	font-size: 1.5em;
+	margin-top: 0.6%;
+	border: 2px solid #c281d7;
+	box-sizing : border-box;
+}
+
+.btn-cabecalho:hover{
+	border: 2px solid black;
+}
+
+/* ----------------------------------- CORPO --------------------------------- */
+
+.formulario{
+	position: absolute;
+	left: 10%;
+	top: 15%;
+	width: 80%;
+	height: 80%;
+	box-sizing : border-box;
+}
+
+.formulario fieldset{
+	width: 100%;
+	margin-bottom: 4%;
+}
+
+.labels{
+	font-family: "Lato";
+	font-size: 2em;
+}
+
+.entradas{
+	border: 2px solid black;
+	width: 100%;
+	border-radius: 5px;
+	padding-left: 4px;
+	font-size: 1.8em;
+	box-sizing : border-box;
+	margin-top: 0.4%;
+}
+
+.btn-formulario{
+	width: 20%;
+	font-size: 1.5em;
+	font-family: "Lato";
+	box-sizing: border-box;
+	color: white;
+	background-color: #7884d0;
+	border: 2px solid #7884d0;
+	border-radius: 8px;
+}
+
+.btn-formulario:hover{
+	border: 2px solid black;
+}
+
+.btn-formulario-direita{
+	margin-left: 8%;
+}
+
+.div-tabela{
+	overflow: auto;
+	position: absolute;
+	top: 15%;
+	width: 100%;
+	height: 80%;
+	left: 0%;
+	right: 100%;
+	bottom: 85%;
+}
+
+.tabela-professores{
+	width: 98%;
+	box-sizing: border-box;
+	position: absolute;
+	left: 1%;
+	top: 0%;
+	font-family: "Lato";
+	text-align: center;
+	border-radius: 15px;
+	background-color: #6789c9;
+}
+
+.cabecalho-tabela{
+	font-size: 2.5em;
+	background-color: #c281d7;
+	color: white;
+	border-radius: 15px;
+}
+
+.cabecalho-tabela th{
+	height: 1.5em;
+	box-sizing : border-box;
+	padding: 1%;
+}
+
+.cabecalho-tabela th:nth-child(1){
+	border-radius: 15px 0 0 0 ;
+}
+
+.cabecalho-tabela th:nth-child(5){
+	border-radius: 0 15px 0 0;
+}
+
+.linha{
+	color: white;
+	font-size: 1.5em;
+	height: 2em;
+	box-sizing: border-box;
+}
+
+.linha td{
+	padding-top: 1%;
+	box-sizing: border-box;
+}
+
+.linha:hover{
+	background-color: #6a6ecb;
+}
+
+.elemento-oculto{
+	display: none;
+}

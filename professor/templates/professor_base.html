@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Professores</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+		<link rel="stylesheet" href="{% static 'css/professor.css' %}">
+		<link href='http://fonts.googleapis.com/css?family=Lato|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<header class="cabecalho">
+			<h2>Professor</h2>
+			<section>
+				<button class="btn-cabecalho">Home</button>
+				<button id="lista-professor" class="btn-cabecalho">Listar</button>
+				<button id="cadastra-professor" class="btn-cabecalho">Cadastrar</button>
+			</section>
+		</header>
+		<div>
+			{% block body %}
+
+			{% endblock %}
+		</div>
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/funcoes.js' %}"></script>
+		<script src="{% static 'js/professor.js' %}"></script>
+	</body>
+</html>

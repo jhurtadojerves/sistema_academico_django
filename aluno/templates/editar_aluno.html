@@ -1,0 +1,42 @@
+{% extends "aluno_base.html" %}
+{% block body %}
+
+	<form id="form-cadastro-aluno" class="formulario formulario-edicao" method = "POST">
+		{% csrf_token %}
+		<fieldset>
+			<label class="labels">Nome : </label>
+			<input name="nome" class = "entradas" value="{{ aluno.nome }}">
+		</fieldset>
+		<fieldset>
+			<label class="labels">Cpf : </label>
+			<input name="cpf" id="cpf" class="entradas" placeholder="xxx.xxx.xxx-xx" maxlength="14" pattern="[0-9.-]*" required value="{{ aluno.cpf_com_mascara }}">
+		</fieldset>
+		<fieldset>
+			<label class="labels">Data de nascimento : </label>
+			<input name="data_nasc" id="dataNasc" class="entradas" placeholder="dd/mm/yyyy" maxlength="10" required value="{{ aluno.data_nasc }}">
+		</fieldset>
+		<fieldset>
+			{% if aluno.ativo %}
+				<input type="radio" name="ativo" class="radio" value="true" checked><label class="labels">Ativo</label>
+				<input type="radio" name="ativo" class="radio" value="false"><label class="labels">Inativo</label>
+			{% else %}
+				<input type = "radio" name = "ativo" class="radio" value = "true" ><label class="labels">Ativo</label>
+				<input type = "radio" name = "ativo" class="radio" value = "false" checked><label class="labels">Inativo</label>
+			{% endif %}
+		</fieldset>
+		<fieldset>
+			<label class="labels">Ano de entrada : </label>
+			<input name="ano_entrada" id="anoEntrada" class="entradas" maxlength="6" value="{{ aluno.ano_entrada }}">
+		</fieldset>
+		<input value="{{ aluno.id }}" id="idAluno" name="id" class="elemento-oculto" readonly="true">
+		<button class="btn-form">Salvar</button>
+		<button id="remover-aluno" class="btn-form btn-direita">Remover</button>
+		{% if form.errors %}
+			<div class="div-erro">
+				<label>{{ form.non_field_errors }}</label>
+			</div>
+			<div class="escurece-pagina"></div>
+		{% endif %}
+	</form>
+
+{% endblock %}

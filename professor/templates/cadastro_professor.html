@@ -1,0 +1,40 @@
+{% extends 'professor_base.html' %}
+{% block body %}
+
+	<form id="form-cadastro-professor" class="formulario" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<label class="labels">Nome : </label>
+			<input name="nome" class="entradas" required>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Cpf : </label>
+			<input id="cpf" name="cpf" class="entradas" maxlength="14" required>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Formação : </label>
+			<select name="formacao" class="entradas" required>
+				{% for formacao in formacoes %}
+					<option value="{{ formacao.id }}">{{ formacao.nome }}</option>
+				{% endfor %}
+			</select>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Categoria</label>
+			<select name="categoria" class="entradas" required>
+				{% for categoria in categorias %}
+					<option value="{{ categoria.id }}">{{ categoria.nome }}  |  {{ categoria.salario }}</option>
+				{% endfor %}
+			</select>
+		</fieldset>
+		<button class="btn-formulario">Salvar</button>
+	</form>
+	{% if form.errors %}
+		<div>
+			<label>{{ form.non_field_errors }}</label>
+		</div>
+		<div class="escurece-pagina"></div>
+	{% endif %}
+
+
+{% endblock %}

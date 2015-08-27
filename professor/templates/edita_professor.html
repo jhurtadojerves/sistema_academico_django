@@ -1,0 +1,43 @@
+{% extends 'professor_base.html' %}
+{% block body %}
+
+	<form id="form-edita" class="formulario" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<label class="labels">Nome : </label>
+			<input name="nome" class="entradas" value="{{ professor.nome }}" required>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Cpf : </label>
+			<input name="cpf" id="cpf" class="entradas" value="{{ professor.cpf_com_mascara }}" maxlength="14" required>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Formação : </label>
+			<select name="formacao" class="entradas">
+				{% for formacao in formacoes %}
+					{% if professor.formacao == formacao %}
+						<option selected="selected" value="{{ formacao.id }}"> {{ formacao.nome }}</option>
+					{% else %}
+						<option value="{{ formacao.id }}">{{ formacao.nome }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Categoria : </label>
+			<select name="categoria" class="entradas">
+				{% for categoria in categorias %}
+					{% if categoria == professor.categoria %}
+						<option selected="selected" value="{{ categoria.id }}">{{ categoria.nome }} | {{ categoria.salario }}</option>
+					{% else %}
+						<option value="{{ categoria.id }}">{{ categoria.nome }} | {{categoria.salario }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</fieldset>
+		<input id="id-professor" class="elemento-oculto" readonly="true" value="{{ professor.id }}">
+		<button class="btn-formulario">Editar</button>
+		<button id="btn-remover-professor" class="btn-formulario btn-formulario-direita">Excluir</button>
+	</form>
+
+{% endblock %}

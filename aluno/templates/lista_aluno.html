@@ -1,0 +1,32 @@
+{% extends "aluno_base.html" %}
+{% block body %}
+	<div class="corpo-lista-alunos">
+		<table class="tabela-alunos">
+			<thead>
+				<th>Nome</th>
+				<th>Cpf</th>
+				<th>Ativo</th>
+				<th>Ano entrada</th>
+				<th>Data nasc</th>
+			</thead>
+			<tbody>
+				{% for aluno in alunos %}
+				<tr class="linha">
+					<td>{{ aluno.nome }}</td>
+					<td>{{ aluno.cpf_com_mascara }}</td>
+					<td>
+						{% if aluno.ativo%}
+							<label>Sim</label>
+						{% else %}
+							<label>Não</label>
+						{% endif %}
+					</td>
+					<td>{{ aluno.ano_entrada }}</td>
+					<td>{{ aluno.data_nasc }}</td>
+					<td class="elemento-oculto id_aluno">{{ aluno.id }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

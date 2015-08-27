@@ -1,0 +1,35 @@
+{% extends "aluno_base.html" %}
+{% block body %}
+
+	<form id="form-cadastro-aluno" class = "formulario" method = "POST">
+		{% csrf_token %}
+		<fieldset>
+			<label class="labels">Nome : </label>
+			<input name="nome" class = "entradas">
+		</fieldset>
+		<fieldset>
+			<label class="labels">Cpf : </label>
+			<input name="cpf" id="cpf" class="entradas" placeholder="xxx.xxx.xxx-xx" maxlength="14" pattern="[0-9.-]*" required>
+		</fieldset>
+		<fieldset>
+			<label class="labels">Data de nascimento : </label>
+			<input name="data_nasc" id="dataNasc" class="entradas" placeholder="dd/mm/yyyy" maxlength="10" required>
+		</fieldset>
+		<!--<fieldset>
+			<label class = "labels">Ativo</label>
+			<input type = "radio" name = "ativo" value = "true" selected = "true">Ativo
+			<input type = "radio" name = "ativo" value = "false" selected = "false">Inativo
+		</fieldset>-->
+		<fieldset>
+			<label class="labels">Ano de entrada : </label>
+			<input name="ano_entrada" id="anoEntrada" class="entradas" maxlength="6">
+		</fieldset>
+		<button class = "btn-form">Salvar</button>
+		{% if form.errors %}
+			<div class="div-erro">
+				<label>{{ form.non_field_errors }}</label>
+			</div>
+			<div class="escurece-pagina"></div>
+		{% endif %}
+	</form>
+{% endblock %}

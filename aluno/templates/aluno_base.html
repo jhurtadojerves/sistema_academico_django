@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aluno</title>
+		<meta charset = "utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Lato|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{% static "css/reset.css" %}">
+		<link rel="stylesheet" href="{% static "css/base.css"%}"> 
+	</head>
+	<body>
+		<header class = "header">
+			<h2>Aluno</h2>
+			<section>
+				<button class = "btn-cabecalho">Home</button>
+				<button id="listar-aluno" class = "btn-cabecalho">Listar</button>
+				<button id="cadastrar-aluno" class = "btn-cabecalho">Cadastrar</button>
+			</section>
+		</header>
+		<div class = "corpo">
+			{% block body %}
+			{% endblock %}
+		</div>
+		<script src="{% static "js/jquery.js"%}"></script>
+		<script src="{% static "js/funcoes.js" %}"></script>
+		<script src="{% static "js/validacoes.js" %}"></script>
+	</body>
+</html>

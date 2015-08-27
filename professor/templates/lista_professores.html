@@ -1,0 +1,28 @@
+{% extends 'professor_base.html' %}
+{% block body %}
+
+	<div class="div-tabela">
+		<table class="tabela-professores">
+			<thead class="cabecalho-tabela">
+				<th>Nome</th>
+				<th>Cpf</th>
+				<th>Categoria</th>
+				<th>Formação</th>
+				<th>Salário</th>
+			</thead>
+			<tbody>
+				{% for professor in lista_professores %}
+					<tr class="linha">
+						<td>{{ professor.nome }}</td>
+						<td>{{ professor.cpf_com_mascara }}</td>
+						<td>{{ professor.categoria.nome }}</td>
+						<td>{{ professor.formacao.nome }}</td>
+						<td>{{ professor.salario_formatado }}</td>
+						<td class="elemento-oculto id-professor">{{ professor.id}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+		
+{% endblock %}
